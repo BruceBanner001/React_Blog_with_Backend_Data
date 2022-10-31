@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const Tourism = () => {
+const Kollywood = () => {
     const[data, setData] = useState([])
     const fetchData = async () => {
         const responseFromServer = await axios.get("https://react-blog-backend-data.herokuapp.com/data");
@@ -13,16 +13,16 @@ const Tourism = () => {
       },[]);
     return (
         <div>
-            <div className='Header'>Tourism</div>
+            <div className='Header'>Kollywood</div>
             <hr id="harizondal" /><br></br><br></br>
             <div>
                 <div className="LeftSide">
                     {
-                        data.filter((data) => data.category === "Tourism").map((data) => (
+                        data.filter((data) => data.category === "Kollywood").map((data) => (
                             <>
                                 <div className="leftSideContent">
                                     <div key={data.id}>
-                                    <Link to={`/Tourism/${data.id}`}>
+                                    <Link to={`/Kollywood/${data.id}`}>
                                             <img src={data.image} alt=' ' className="imageLeftSide" />
                                         </Link>
                                         <div className="leftSideRight">
@@ -41,11 +41,11 @@ const Tourism = () => {
                     <div className="Header">Top Posts</div>
                     <hr id="harizondalRight" /><br></br><br></br>
                     {
-                        data.filter((data) => data.category === "Tourism").map((data) => (
+                        data.filter((data) => data.category === "Kollywood").map((data) => (
                             <>
                                 <div className="rightSideContent">
                                     <div key={data.id}>
-                                        <Link to={`/Tourism/${data.id}`}>
+                                        <Link to={`/Kollywood/${data.id}`}>
                                             <img src={data.image} alt=' ' className="imageRightSide" />
                                         </Link>
                                         <div className="rightSideRight">
@@ -65,4 +65,4 @@ const Tourism = () => {
     )
 }
 
-export default Tourism;
+export default Kollywood;
